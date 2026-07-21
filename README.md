@@ -67,7 +67,6 @@ Edite as variáveis abaixo para gerar automaticamente o cabeçalho superior do p
     $^\dagger$\mbox{\href{mailto:email@ufv.br}{{\faEnvelope[regular]}\hspace{0.13cm} email@ufv.br}}
 }
 ```
-*Dica: Você pode trocar os logos da instituição alterando os caminhos das imagens na macro `\BuildTitle` dentro de `_preamble/config.tex`.*
 
 ### 2. 📦 Caixas de Destaque (ColorBoxes)
 O texto do pôster flui em 3 colunas (gerenciadas pelo pacote `multicol`). Para organizar visualmente seus métodos e resultados, o template fornece 4 caixas prontas para uso no arquivo `content.tex`:
