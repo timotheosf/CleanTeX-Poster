@@ -27,7 +27,7 @@ pdflatex main.tex
 1. **Metadados:** preencha o arquivo `_setup.tex` com o título, autores e contatos. Os logos do cabeçalho se ajustam sozinhos.
 2. **Conteúdo:** escreva o seu pôster dentro do arquivo `content.tex`.
 3. **Bibliografia:** adicione suas referências no arquivo `_bibliography/references.bib`. O template já está configurado para imprimir todas as referências (`\nocite{*}`) adicionadas.
-4. **Logos:** adicione suas logos no diretório `_logos/` com os nomes `left_logo` e `right_logo`; caso necessário, edite o macro `\BuildTitle` (em `_preamble/config`) para mantê-las alinhadas.
+4. **Logos:** adicione a logo do seu grupo/laboratório na pasta `_logos/`. Para usá-la no cabeçalho, basta abrir o main.tex e passar o nome do arquivo como argumento no comando de título (ex: `\BuildTitle[minha_logo]`).
 
 ## 🌲 Árvore de Diretórios
 
@@ -68,7 +68,17 @@ Edite as variáveis abaixo para gerar automaticamente o cabeçalho superior do p
 }
 ```
 
-### 2. 📦 Caixas de Destaque (ColorBoxes)
+### 2. 🖼️ Personalizando as Logos do Cabeçalho (`main.tex`)
+A inserção da logo do seu laboratório (no lado direito do cabeçalho) é totalmente automatizada. 
+1. Coloque a imagem na pasta `_logos/` (ex: `minha_logo.png`).
+2. No arquivo principal `main.tex`, chame a macro `\BuildTitle` passando o nome do arquivo (sem a extensão) como argumento opcional:
+
+```latex
+\BuildTitle[minha_logo]
+```
+**Nota:** O template possui comportamentos especiais programados no `_preamble/config.tex`. Por exemplo, ao compilar com `\BuildTitle[lespa]`, o template não apenas carrega a logo do LESPA, mas também ajusta a largura da coluna e imprime o nome do laboratório por extenso automaticamente.
+
+### 3. 📦 Caixas de Destaque (ColorBoxes)
 O texto do pôster flui em 3 colunas (gerenciadas pelo pacote `multicol`). Para organizar visualmente seus métodos e resultados, o template fornece 4 caixas prontas para uso no arquivo `content.tex`:
 
 ```latex
@@ -87,6 +97,7 @@ O texto do pôster flui em 3 colunas (gerenciadas pelo pacote `multicol`). Para 
 \begin{darkbox}{Título da Caixa} ... \end{darkbox}
 ```
 Se quiser centralizar o título da caixa, basta passar o argumento `[center title]`, exemplo: `\begin{darkbox}[center title]{Referências}`.
+
 
 
 ---
