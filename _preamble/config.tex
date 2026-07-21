@@ -13,31 +13,51 @@
 \def\posterauthors{PosterAuthors}
 \def\postercontacts{PosterContacts}
 
-\newcommand{\BuildTitle}{
+\newcommand{\BuildTitle}[1][gisc]{%
 \begin{center}
 \vspace{2cm}
 \begin{minipage}{\dimexpr\textwidth - 4cm\relax} 
+
+% --- MINIPAGE ESQUERDA ---
 \begin{minipage}[c]{0.13\textwidth}
     \centering
-    \vspace{0.26\linewidth}
-    \includegraphics[width=\linewidth]{_logos/left_logo}
+    % Adiciona o vspace para a logo'gisc'
+    \ifthenelse{\equal{#1}{gisc}}{%
+        \vspace{0.26\linewidth}%
+    }{}%
+    \includegraphics[width=\linewidth]{_logos/ufv_vertical_color.pdf}
 \end{minipage}
 \hfill
+% --- MINIPAGE CENTRAL ---
 \begin{minipage}[c]{0.68\textwidth}
     \centering
     {\setTitleFont\bfseries \postertitle}\par
     \vspace{1cm}
     {\setSubtitleFont \posterauthors}\par
     \vspace{0.2cm}
-    {\setSubSubTitleFont \postercontacts
-    }
+    {\setSubSubTitleFont \postercontacts}
 \end{minipage}
 \hfill
-\begin{minipage}[c]{0.13\textwidth}
+% --- MINIPAGE DIREITA ---
+% Define o tamanho da minipage direita dependendo do argumento
+\ifthenelse{\equal{#1}{lespa}}{%
+    \def\rightwidth{0.18\textwidth}
+}{%
+    \def\rightwidth{0.13\textwidth}
+}
+\begin{minipage}[c]{\rightwidth}
     \centering
-    \includegraphics[width=\linewidth]{_logos/right_logo}
+    \includegraphics[width=\linewidth]{_logos/#1}
+    \ifthenelse{\equal{#1}{lespa}}{
+    \\
+        \begin{center}
+            {\setBibFont
+            Laboratório de Eletrodeposição, Superfíces e Películas Avançadas}
+        \end{center}
+    }{}%
 \end{minipage}\\[1cm]
 \end{minipage}
+
 {\color{gray}\rule{\linewidth}{2pt}}
 \end{center}
 \vspace{1cm}
@@ -46,17 +66,17 @@
 \newcommand{\BuildAckownledgments}{
     \begin{darkbox}[center title]{Acknowledgments}
     \centering
-        \begin{minipage}[c]{0.13\textwidth}
+        \begin{minipage}[c]{0.15\textwidth}
             \centering
-            \includegraphics[width=\linewidth]{_logos/capes.eps}
+            \includegraphics[width=\linewidth]{_logos/capes.pdf}
         \end{minipage}
     \hspace{2em}
         \begin{minipage}[c]{0.28\textwidth}
             \centering
-            \includegraphics[width=\linewidth]{_logos/cnpq.eps}
+            \includegraphics[width=\linewidth]{_logos/cnpq.pdf}
         \end{minipage}
     \hspace{2em}
-        \begin{minipage}[c]{0.13\textwidth}
+        \begin{minipage}[c]{0.15\textwidth}
             \centering
             \includegraphics[width=\linewidth]{_logos/fapemig.png}
         \end{minipage}
