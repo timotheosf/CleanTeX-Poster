@@ -1,0 +1,34 @@
+%% --NOTAÇÃO PADRÃO--
+
+%> Alfabetos matemáticos e operadores
+\DeclareMathAlphabet{\pzcal}{OT1}{pzc}{m}{it} %> Usar \pzcal
+\DeclareMathAlphabet{\dcal}{U}{dutchcal}{m}{n} %> Usar \dcal
+\DeclareMathOperator{\Tr}{Tr}
+
+
+%> Notação para variáveis e grandezas
+%> Diferencial
+\newcommand{\diff}{
+    \mathop{}\!\mathrm{d}}
+
+%> Grandeza por partícula
+\newcommand{\pp}[1]{ %per particle [X]
+    \dcal{\MakeLowercase{#1}}}
+%> Entropia por partícula
+\newcommand{\pps}{ %per particle entropy
+    \dcal{s}}
+%> Energia por partícula    
+\newcommand{\ppu}{ %per particle energy
+    \dcal{u}}
+%> Momento conjugado
+\newcommand{\p}{
+  \mathord{\text{\usefont{\encodingdefault}{\familydefault}{m}{sl}p}}}
+%> Coordenada generalizada
+\newcommand{\q}{
+  \mathord{\text{\usefont{\encodingdefault}{\familydefault}{m}{sl}q}}}
+%> Posição no espaço
+\newcommand{\R}{
+  \mathord{\text{\usefont{\encodingdefault}{\familydefault}{m}{sl}r}}}
+%> Coordenada x
+\newcommand{\X}{
+  \mathord{\text{\usefont{\encodingdefault}{\familydefault}{m}{sl}x}}}

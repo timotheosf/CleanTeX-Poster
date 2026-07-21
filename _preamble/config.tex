@@ -1,0 +1,78 @@
+\input{_preamble/packages}
+\input{_preamble/standard_notation}
+\input{_preamble/appearance_config}
+%\input{_preamble/box_config}
+
+\newcommand{\PosterTitle}[1]{\def\postertitle{#1}}
+\newcommand{\PosterAuthors}[1]{\def\posterauthors{#1}}
+\newcommand{\PosterAuthor}[1]{\def\posterauthor{#1}}
+\newcommand{\PosterContacts}[1]{\def\postercontacts{#1}}
+
+\def\postertitle{PosterTitle}
+\def\posterauthor{Build with LaTeX}
+\def\posterauthors{PosterAuthors}
+\def\postercontacts{PosterContacts}
+
+\newcommand{\BuildTitle}{
+\begin{center}
+\vspace{2cm}
+\begin{minipage}{\dimexpr\textwidth - 4cm\relax} 
+\begin{minipage}[c]{0.13\textwidth}
+    \centering
+    \vspace{0.26\linewidth}
+    \includegraphics[width=\linewidth]{_logos/ufv_color_vertical.png}
+\end{minipage}
+\hfill
+\begin{minipage}[c]{0.68\textwidth}
+    \centering
+    {\setTitleFont\bfseries \postertitle}\par
+    \vspace{1cm}
+    {\setSubtitleFont \posterauthors}\par
+    \vspace{0.2cm}
+    {\setSubSubTitleFont \postercontacts
+    }
+\end{minipage}
+\hfill
+\begin{minipage}[c]{0.13\textwidth}
+    \centering
+    \includegraphics[width=\linewidth]{_logos/gisc_color_full.pdf}
+\end{minipage}\\[1cm]
+\end{minipage}
+{\color{gray}\rule{\linewidth}{2pt}}
+\end{center}
+\vspace{1cm}
+}
+
+\newcommand{\BuildAckownledgments}{
+    \begin{darkbox}[center title]{Acknowledgments}
+    \centering
+        \begin{minipage}[c]{0.13\textwidth}
+            \centering
+            \includegraphics[width=\linewidth]{_logos/capes.eps}
+        \end{minipage}
+    \hspace{2em}
+        \begin{minipage}[c]{0.28\textwidth}
+            \centering
+            \includegraphics[width=\linewidth]{_logos/cnpq.eps}
+        \end{minipage}
+    \hspace{2em}
+        \begin{minipage}[c]{0.13\textwidth}
+            \centering
+            \includegraphics[width=\linewidth]{_logos/fapemig.png}
+        \end{minipage}
+    \end{darkbox}
+}
+
+\newcommand{\BuildRefs}{
+    \begin{darkbox}[center title]{References}
+        \nocite{*}
+        \printbibliography[heading=none]
+    \end{darkbox}
+}
+
+\usepackage[
+    pdftitle={\postertitle},
+    pdfauthor={\posterauthor},
+    colorlinks=true,
+    urlcolor=black
+]{hyperref}

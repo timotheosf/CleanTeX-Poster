@@ -1,0 +1,5 @@
+# Ignore image files
+*.pdf
+*.png
+*.eps
+*.svg

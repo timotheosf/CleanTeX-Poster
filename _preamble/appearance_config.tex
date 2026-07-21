@@ -1,0 +1,150 @@
+% --- FONTES ESCALÁVEIS ---
+\newdimen\BaseFontSize
+\setlength{\BaseFontSize}{0.009\paperheight}
+\newcommand{\setBaseFont}{\fontsize{\BaseFontSize}{\dimexpr 1.2\BaseFontSize\relax}\selectfont}
+\newcommand{\setBibFont}{\fontsize{\dimexpr 0.7\BaseFontSize}{\dimexpr 0.9\BaseFontSize\relax}\selectfont}
+\newcommand{\setSectionFont}{\fontsize{\dimexpr 1.4\BaseFontSize\relax}{\dimexpr 1.68\BaseFontSize\relax}\selectfont}
+\newcommand{\setSubtitleFont}{\fontsize{\dimexpr 1.5\BaseFontSize\relax}{\dimexpr 2.16\BaseFontSize\relax}\selectfont}
+\newcommand{\setTitleFont}{\fontsize{\dimexpr 2\BaseFontSize\relax}{\dimexpr 2.4\BaseFontSize\relax}\selectfont}
+\newcommand{\setSubSubTitleFont}{\fontsize{\dimexpr 1.3\BaseFontSize\relax}{\dimexpr 1.7\BaseFontSize\relax}\selectfont}
+
+% --- COMANDOS PERSONALIZADOS ---
+\newcommand{\sectionTitle}[1]{%
+  \begin{center}
+  \begin{minipage}[c]{0.9\columnwidth}
+    \centering
+    {\setSectionFont\bfseries\color{Maroon} #1}
+    \linebreak
+    \vspace{0.05em}
+  \end{minipage}
+  {\color{Maroon}\rule{0.8\columnwidth}{2pt}}\\[1em]
+  \end{center}
+
+}
+
+% --- CONFIGURAÇÃO DAS CAIXAS ---%
+\tcbset{
+    center title/.style={
+        attach boxed title to top center={yshift=-\tcboxedtitleheight/2}
+    }
+}
+
+\newtcolorbox{bluebox}[2][]{
+    enhanced,
+    breakable,
+    sharp corners,
+    frame hidden,
+    boxrule=0pt,
+    colback=NavyBlue!3!white,
+    coltitle=Black,
+    fonttitle=\bfseries,
+    title={#2},
+    attach boxed title to top left={yshift=-\tcboxedtitleheight/2, xshift=1em},
+    #1,
+    boxed title style={
+        sharp corners,
+        coltitle=Black,
+        colback=NavyBlue!20!white,
+        colframe=NavyBlue!20!white,
+        boxrule=0pt,
+        top=0.2em,
+        bottom=0.1em,
+        left=0.2em,
+        right=0.2em
+    },
+    before upper={\setlength{\parindent}{1.5em}},
+    before lower={\setlength{\parindent}{1.5em}},
+    top=1.5em,
+    bottom=1em,
+    left=0.5em,
+    right=0.5em
+}
+
+\newtcolorbox{floralbox}[2][]{
+    enhanced,
+    breakable,
+    sharp corners,
+    frame hidden,
+    boxrule=0pt,
+    colback=FloralWhite!50!white,
+    fonttitle=\bfseries,
+    title={#2},
+    attach boxed title to top left={yshift=-\tcboxedtitleheight/2, xshift=1em},
+    #1,
+    boxed title style={
+        coltitle=Black,
+        colback=SlateGrey!90!White,
+        colframe=SlateGrey!90!White,
+        boxrule=0pt,
+        top=0.2em,
+        bottom=0.1em,
+        left=0.2em,
+        right=0.2em
+    },
+    before upper={\setlength{\parindent}{1.5em}},
+    before lower={\setlength{\parindent}{1.5em}},
+    top=1.5em,
+    bottom=1em,
+    left=0.5em,
+    right=0.5em
+}
+
+\newtcolorbox{graybox}[2][]{
+    enhanced,
+    breakable,
+    sharp corners,
+    frame hidden,
+    boxrule=0pt,
+    colback=Gainsboro!30!white,
+    fonttitle=\bfseries,
+    title={#2},
+    attach boxed title to top left={yshift=-\tcboxedtitleheight/2, xshift=1em},
+    #1,
+    boxed title style={
+        sharp corners,
+        colback=DimGrey,
+        colframe=DimGrey,
+        boxrule=0pt,
+        top=0.2em,
+        bottom=0.1em,
+        left=0.2em,
+        right=0.2em
+    },
+    before upper={\setlength{\parindent}{1.5em}},
+    before lower={\setlength{\parindent}{1.5em}},
+    top=1.5em,
+    bottom=1em,
+    left=0.5em,
+    right=0.5em
+}
+
+\newtcolorbox{darkbox}[2][]{
+    enhanced,
+    breakable,
+    boxrule=0pt,
+    frame hidden,
+    colback=NavyBlue!10!white,
+    coltitle=white,
+    fonttitle=\bfseries,
+    title={#2},
+    attach boxed title to top left={yshift=-\tcboxedtitleheight/2, xshift=1em},
+    #1,
+    boxed title style={
+        coltitle=white,
+        colback=NavyBlue!70!white,
+        colframe=NavyBlue!70!white,
+        boxrule=0pt,
+        top=0.2em,
+        bottom=0.1em,
+        left=0.4em,
+        right=0.4em,
+        arc=1.2mm
+    },
+    before upper={\setlength{\parindent}{1.5em}},
+    before lower={\setlength{\parindent}{1.5em}},
+    top=1.5em,
+    bottom=1em,
+    left=0.5em,
+    right=0.5em,
+    arc=5mm
+}
