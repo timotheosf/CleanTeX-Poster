@@ -6,14 +6,14 @@
 \newcommand{\BuildTitle}[1][gisc]{%
 \begin{center}
 \vspace{2cm}
-\begin{minipage}{\dimexpr\textwidth - 4cm\relax} 
+\begin{minipage}{\dimexpr\textwidth - 5cm\relax} 
 
 % --- MINIPAGE ESQUERDA ---
 \begin{minipage}[c]{0.13\textwidth}
     \centering
     % Adiciona o vspace para a logo'gisc'
     \ifthenelse{\equal{#1}{gisc}}{%
-        \vspace{0.26\linewidth}%
+        \vspace{0.3\linewidth}%
     }{}%
     \includegraphics[width=\linewidth]{_logos/ufv_vertical_color.pdf}
 \end{minipage}
@@ -48,7 +48,8 @@
 \end{minipage}\\[1cm]
 \end{minipage}
 
-{\color{gray}\rule{\linewidth}{2pt}}
+\noindent
+\tikz \fill [\ThemeColor, path fading=fade in out] (0,0) rectangle (\linewidth, 3pt);
 \end{center}
 \vspace{1cm}
 }

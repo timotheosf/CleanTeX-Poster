@@ -4,16 +4,41 @@
 \definecolor{ufvGrey}{RGB}{ 51 , 51 , 51 }
 \definecolor{ufvYellow}{RGB}{ 209 , 167 , 5 }
 
+%
+\definecolor{giscGray}{RGB}{ 66, 66, 66 } %  rgb(66, 66, 66)
+\definecolor{giscRed}{RGB}{ 159, 36, 48 } %  rgb(238, 54, 72) -> passed to rgb(119, 27, 36) or rgb(159, 36, 48)
+\definecolor{giscBlue}{RGB}{ 103, 178, 255 } %  rgb(103, 178, 255)
+\definecolor{giscLightBlue}{RGB}{ 186, 220, 255 } %  rgb(186, 220, 255)
+
 %% --- DEFINING POSTER COLORS --- %%
 \newcommand{\SetPrimaryColor}[1]{\def\PrimaryColor{#1}}
 \newcommand{\SetSecondaryColor}[1]{\def\SecondaryColor{#1}}
 \newcommand{\SetAccentColor}[1]{\def\AccentColor{#1}}
 \newcommand{\SetThemeColor}[1]{\def\ThemeColor{#1}}
 
-\def\PrimaryColor{ufvRed}
-\def\SecondaryColor{ufvYellow}
-\def\AccentColor{ufvGrey}
-\def\ThemeColor{\PrimaryColor}
+\newcommand{\SetUFVPallet}{
+    \SetPrimaryColor{ufvRed}
+    \SetSecondaryColor{ufvYellow}
+    \SetAccentColor{ufvGrey}
+    \SetThemeColor{ufvRed}
+}
+
+\newcommand{\SetPalette}[1]{%
+    \IfEqCase{#1}{%
+        % --- CASE: GISC ---
+        {gisc}{
+        \SetPrimaryColor{giscBlue}
+        \SetSecondaryColor{giscLightBlue}
+        \SetAccentColor{giscGray}
+        \SetThemeColor{giscRed}}
+    }[ 
+        % Default case   
+        \PackageWarning{CleanTeX-Poster}{Palette '#1' not found. Falling back to 'ufv'.}
+        \SetUFVPallet
+    ]
+}
+
+\SetUFVPallet
 
 %% --- DEFINING POSTER METADATA --- %%
 \newcommand{\SetPosterTitle}[1]{\def\PosterTitle{#1}}
