@@ -3,3 +3,15 @@
 *.png
 *.eps
 *.svg
+
+# Ignore LaTeX files
+*.aux
+*.bbl
+*.bcf
+*.blg
+*.fdb_latexmk
+*.fls
+*.log
+*.out
+*.run.xml
+*.synctex.gz
