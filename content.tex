@@ -1,16 +1,16 @@
 \sectionTitle{O Título da seção vem aqui}
 Enquanto o texto da seção pode vir aqui, seguido por caixas de destaque.
 
-\begin{bluebox}[center title]{Check out our GitHub Repository \faGithub}
+\begin{mainbox}[center title]{Check out our GitHub Repository \faGithub}
     \begin{center}
         \begin{minipage}[c]{0.2\linewidth}
             \centering
             \qrcode[height=\linewidth]{https://github.com/timotheosf}
         \end{minipage}
     \end{center}
-\end{bluebox}
+\end{mainbox}
 
-\begin{floralbox}{A caixa \texttt{floralbox}}
+\begin{highlightbox}{A caixa \texttt{highlightbox}}
     Dado um ensemble canônico, definimos sua função de partição $\mathcal{Z}_C$ como a soma dos pesos de Boltzmann sobre \textit{todos} os estados de equilíbrio possíveis ao sistema:
     \begin{equation}
         \mathcal{Z}_C(T,V,N) = \sum_{j}e^{-E(j)\beta}.
@@ -19,13 +19,13 @@ Enquanto o texto da seção pode vir aqui, seguido por caixas de destaque.
     \begin{equation}
         F(T,V,N)=-k_BT\ln\mathcal{Z}_C.
     \end{equation}
-\end{floralbox}
+\end{highlightbox}
 
 Podemos escrever as nossas abobrinhas como bem quisermos.
 
 \blablabla[2]
 
-\begin{bluebox}{A caixa \texttt{bluebox}}
+\begin{mainbox}{A caixa \texttt{mainbox}}
     Dado um ensemble canônico, definimos sua função de partição $\mathcal{Z}_C$ como a soma dos pesos de Boltzmann sobre \textit{todos} os estados de equilíbrio possíveis ao sistema:
     \begin{equation}
         \mathcal{Z}_C(T,V,N) = \sum_{j}e^{-E(j)\beta}.
@@ -34,7 +34,7 @@ Podemos escrever as nossas abobrinhas como bem quisermos.
     \begin{equation}
         F(T,V,N)=-k_BT\ln\mathcal{Z}_C.
     \end{equation}
-\end{bluebox}
+\end{mainbox}
 
 \sectionTitle{Fazer outra seção não quebra o multicol}
 
@@ -64,5 +64,7 @@ E a quebra de coluna não atrapalha as caixas de destaque.
     \end{equation}
 \end{darkbox}
 
+
+Podemos dar \Highlight{destaque a algum texto} com o comando \verb|\Highlight|.
 
 E, no final, temos os agradecimentos e referências impressos automaticamente, com suporte às citações \texttt{natbib}.
