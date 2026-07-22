@@ -1,11 +1,3 @@
-% --- TICKZ MACRO FOR RULE ---%
-\tikzfading[
-  name=fade in out,
-  left color=transparent!100,
-  right color=transparent!100,
-  middle color=transparent!0
-]
-
 % --- FONTES ESCALÁVEIS ---
 \newdimen\BaseFontSize
 \setlength{\BaseFontSize}{0.009\paperheight}
@@ -24,7 +16,7 @@
       sharp corners,
       frame hidden,
       boxrule=0pt,
-      colback=\ThemeColor!5!white,
+      colback=\ThemeColor!10!white,
       borderline west={5pt}{0pt}{\ThemeColor},
       left=0.5em,
       top=0.4em,
@@ -56,14 +48,14 @@
     frame hidden,
     boxrule=0pt,
     colback=\PrimaryColor!3!white,
-    coltitle=\ColMain,
+    coltitle=\ColorTitleMainBox,
     fonttitle=\bfseries,
     title={#2},
     attach boxed title to top left={yshift=-\tcboxedtitleheight/2, xshift=1em},
     #1,
     boxed title style={
         sharp corners,
-        coltitle=\ColMain,
+        coltitle=\ColorTitleMainBox,
         colback=\PrimaryColor!20!white,
         colframe=\PrimaryColor!20!white,
         boxrule=0pt,
@@ -87,12 +79,13 @@
     frame hidden,
     boxrule=0pt,
     colback=\SecondaryColor!20!white,
+    coltitle=\ColorTitleHighlightBox,
     fonttitle=\bfseries,
     title={#2},
     attach boxed title to top left={yshift=-\tcboxedtitleheight/2, xshift=1em},
     #1,
     boxed title style={
-        coltitle=\ColHighlight,
+        coltitle=\ColorTitleHighlightBox,
         colback=\AccentColor!90!White,
         colframe=\AccentColor!90!White,
         boxrule=0pt,
@@ -116,6 +109,7 @@
     frame hidden,
     boxrule=0pt,
     colback=\AccentColor!5!white,
+    coltitle=\ColorTitleGrayBox,
     fonttitle=\bfseries,
     title={#2},
     attach boxed title to top left={yshift=-\tcboxedtitleheight/2, xshift=1em},
@@ -124,6 +118,7 @@
         sharp corners,
         colback=\AccentColor,
         colframe=\AccentColor,
+        coltitle=\ColorTitleGrayBox,
         boxrule=0pt,
         top=0.2em,
         bottom=0.1em,
@@ -144,13 +139,13 @@
     boxrule=0pt,
     frame hidden,
     colback=\PrimaryColor!10!white,
-    coltitle=\ColDark,
+    coltitle=\ColorTitleDarkBox,
     fonttitle=\bfseries,
     title={#2},
     attach boxed title to top left={yshift=-\tcboxedtitleheight/2, xshift=1em},
     #1,
     boxed title style={
-        coltitle=\ColDark,
+        coltitle=\ColorTitleDarkBox,
         colback=\PrimaryColor!70!white,
         colframe=\PrimaryColor!70!white,
         boxrule=0pt,
@@ -167,4 +162,52 @@
     left=0.5em,
     right=0.5em,
     arc=5mm
+}
+
+% --- TICKZ AND COLORX MACROS ---%
+%> Rule
+\tikzfading[
+  name=fade in out,
+  left color=transparent!100,
+  right color=transparent!100,
+  middle color=transparent!0
+]
+%> Show color in box
+\makeatletter
+\def\parseRGB#1,#2,#3\@nil{%
+    \def\colorR{#1}%
+    \def\colorG{#2}%
+    \def\colorB{#3}%
+}
+\makeatletter
+%> Print color in a square
+\newcommand{\ShowColor}[3][white]{%
+    \convertcolorspec{named}{#2}{RGB}{\currentRGB}%
+    \expandafter\parseRGB\currentRGB\@nil
+    \begin{tikzpicture}
+        % Desenha um quadrado exato do tamanho da minipage
+        \fill[#2] (0,0) rectangle (\linewidth,\linewidth);
+        % O texto fica ancorado pertinho da margem inferior esquerda
+        \node[text=#1, anchor=south west, align=left, font=\sffamily\Large] at (0.2,0.2) {%
+            \textbf{#3}\\[0.2em]R: \colorR\\G: \colorG\\B: \colorB%
+        };
+    \end{tikzpicture}%
+    \makeatother%
+}
+%> Print full palette
+\newcommand{\PrintPalette}{
+    \begin{center}%
+        \begin{minipage}[c]{0.25\linewidth}%
+            \ShowColor{\ThemeColor}{Theme}%
+        \end{minipage}%
+        \begin{minipage}[c]{0.25\linewidth}%
+            \ShowColor{\PrimaryColor}{Primary}%
+        \end{minipage}%
+        \begin{minipage}[c]{0.25\linewidth}%
+            \ShowColor{\SecondaryColor}{Secondary}%
+        \end{minipage}%
+        \begin{minipage}[c]{0.25\linewidth}%
+            \ShowColor{\AccentColor}{Accent}%
+        \end{minipage}%
+    \end{center}%
 }
