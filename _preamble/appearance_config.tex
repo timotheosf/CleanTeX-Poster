@@ -10,16 +10,23 @@
 
 % --- COMANDOS PERSONALIZADOS ---
 \newcommand{\sectionTitle}[1]{%
-  \begin{center}
-  \begin{minipage}[c]{0.9\columnwidth}
-    \centering
-    {\setSectionFont\bfseries\color{Maroon} #1}
-    \linebreak
-    \vspace{0.05em}
-  \end{minipage}
-  {\color{Maroon}\rule{0.8\columnwidth}{2pt}}\\[1em]
-  \end{center}
-
+  \vspace{1.5em}
+  \begin{tcolorbox}[
+      enhanced,
+      sharp corners,
+      frame hidden,
+      boxrule=0pt,
+      colback=\PrimaryColor!5!white,
+      borderline west={5pt}{0pt}{\PrimaryColor},
+      left=0.5em,
+      top=0.4em,
+      bottom=0.4em,
+      halign=center,
+      valign=center
+  ]
+      {\setSectionFont\bfseries\color{\PrimaryColor} #1}
+  \end{tcolorbox}
+  \vspace{0.5em}
 }
 
 % --- CONFIGURAÇÃO DAS CAIXAS ---%
