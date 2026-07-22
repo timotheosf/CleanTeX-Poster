@@ -4,17 +4,39 @@
 \begin{document}
 
 \thispagestyle{empty}
+\SetPosterTitle{Três colunas}
+\newsavebox{\HeaderBox}
+\sbox{\HeaderBox}{%
+    \begin{minipage}{\textwidth}
+        \BuildTitle[gisc]
+    \end{minipage}%
+}
+\usebox{\HeaderBox}
+\newlength{\RemainingHeight}
+\setlength{\RemainingHeight}{\dimexpr\textheight-\ht\HeaderBox-\dp\HeaderBox-1cm\relax}
 
-\BuildTitle[gisc]
 
 \setBaseFont
-\begin{multicols}{3}
-
-\input{content}
-
-\BuildAckownledgments
-\BuildRefs
-
-\end{multicols}
+\begin{minipage}[c][\RemainingHeight][c]{0.31\textwidth}
+    \input{content/column_1}
+    
+    \vfill
+    \BuildAckownledgments
+    \BuildRefs
+\end{minipage}\hfill
+\begin{minipage}[c][\RemainingHeight][c]{0.31\textwidth}
+    \input{content/column_2}
+    
+    \vfill
+    \BuildAckownledgments
+    \BuildRefs
+\end{minipage}\hfill
+\begin{minipage}[c][\RemainingHeight][c]{0.31\textwidth}
+    \input{content/column_3}
+    
+    \vfill
+    \BuildAckownledgments
+    \BuildRefs
+\end{minipage}
 
 \end{document}
