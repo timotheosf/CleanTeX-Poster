@@ -15,30 +15,43 @@
 \newcommand{\SetSecondaryColor}[1]{\def\SecondaryColor{#1}}
 \newcommand{\SetAccentColor}[1]{\def\AccentColor{#1}}
 \newcommand{\SetThemeColor}[1]{\def\ThemeColor{#1}}
+\newcommand{\SetColMain}[1]{\def\ColMain{#1}}
+\newcommand{\SetColHighlight}[1]{\def\ColHighlight{#1}}
+\newcommand{\SetColDark}[1]{\def\ColDark{#1}}
+\newcommand{\WhichPalette}[1]{\def\Palette{#1}}
 
-\newcommand{\SetUFVPallet}{
+\newcommand{\SetUFVPalette}{
     \SetPrimaryColor{ufvRed}
     \SetSecondaryColor{ufvYellow}
     \SetAccentColor{ufvGrey}
     \SetThemeColor{ufvRed}
+    \SetColMain{black}
+    \SetColHighlight{white}
+    \SetColDark{white}
 }
 
 \newcommand{\SetPalette}[1]{%
     \IfEqCase{#1}{%
         % --- CASE: GISC ---
         {gisc}{
+        \WhichPalette{gisc}
         \SetPrimaryColor{giscBlue}
         \SetSecondaryColor{giscLightBlue}
         \SetAccentColor{giscGray}
-        \SetThemeColor{giscRed}}
+        \SetThemeColor{giscRed}
+        \SetColMain{Black}
+        \SetColHighlight{white}
+        \SetColDark{black}}
+        
     }[ 
         % Default case   
         \PackageWarning{CleanTeX-Poster}{Palette '#1' not found. Falling back to 'ufv'.}
-        \SetUFVPallet
+        \WhichPalette{ufv}
+        \SetUFVPalette
     ]
 }
 
-\SetUFVPallet
+\SetUFVPalette
 
 %% --- DEFINING POSTER METADATA --- %%
 \newcommand{\SetPosterTitle}[1]{\def\PosterTitle{#1}}
