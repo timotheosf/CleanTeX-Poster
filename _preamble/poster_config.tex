@@ -4,30 +4,38 @@
 \definecolor{ufvGrey}{RGB}{ 51 , 51 , 51 }
 \definecolor{ufvYellow}{RGB}{ 209 , 167 , 5 }
 
-%
 \definecolor{giscGray}{RGB}{ 66, 66, 66 } %  rgb(66, 66, 66)
-\definecolor{giscRed}{RGB}{ 159, 36, 48 } %  rgb(238, 54, 72) -> passed to rgb(119, 27, 36) or rgb(159, 36, 48)
+\definecolor{giscRed}{RGB}{ 159, 36, 48 } %  rgb(238, 54, 72) -> passed to rgb(159, 36, 48)
 \definecolor{giscBlue}{RGB}{ 103, 178, 255 } %  rgb(103, 178, 255)
 \definecolor{giscLightBlue}{RGB}{ 186, 220, 255 } %  rgb(186, 220, 255)
+
+\definecolor{fancyLightBlue}{HTML}{BDE9EF}
+\definecolor{fancyBlue}{HTML}{132C53}
+\definecolor{fancyGray}{HTML}{7C7C7C}
+\definecolor{fancyRed}{HTML}{992F1E}
 
 %% --- DEFINING POSTER COLORS --- %%
 \newcommand{\SetPrimaryColor}[1]{\def\PrimaryColor{#1}}
 \newcommand{\SetSecondaryColor}[1]{\def\SecondaryColor{#1}}
 \newcommand{\SetAccentColor}[1]{\def\AccentColor{#1}}
 \newcommand{\SetThemeColor}[1]{\def\ThemeColor{#1}}
-\newcommand{\SetColMain}[1]{\def\ColMain{#1}}
-\newcommand{\SetColHighlight}[1]{\def\ColHighlight{#1}}
-\newcommand{\SetColDark}[1]{\def\ColDark{#1}}
+\newcommand{\SetColorTitleMainBox}[1]{\def\ColorTitleMainBox{#1}}
+\newcommand{\SetColorTitleHighlightBox}[1]{\def\ColorTitleHighlightBox{#1}}
+\newcommand{\SetColorTitleGrayBox}[1]{\def\ColorTitleGrayBox{#1}}
+\newcommand{\SetColorTitleDarkBox}[1]{\def\ColorTitleDarkBox{#1}}
 \newcommand{\WhichPalette}[1]{\def\Palette{#1}}
 
 \newcommand{\SetUFVPalette}{
+    % Poster Colors
     \SetPrimaryColor{ufvRed}
     \SetSecondaryColor{ufvYellow}
     \SetAccentColor{ufvGrey}
     \SetThemeColor{ufvRed}
-    \SetColMain{black}
-    \SetColHighlight{white}
-    \SetColDark{white}
+    % Color Boxes Title Color
+    \SetColorTitleMainBox{black}
+    \SetColorTitleHighlightBox{white}
+    \SetColorTitleGrayBox{white}
+    \SetColorTitleDarkBox{white}
 }
 
 \newcommand{\SetPalette}[1]{%
@@ -39,17 +47,27 @@
         \SetSecondaryColor{giscLightBlue}
         \SetAccentColor{giscGray}
         \SetThemeColor{giscRed}
-        \SetColMain{Black}
-        \SetColHighlight{white}
-        \SetColDark{black}}
-        
-    }[ 
+        \SetColorTitleMainBox{black}
+        \SetColorTitleHighlightBox{white}
+        \SetColorTitleGrayBox{white}
+        \SetColorTitleDarkBox{black}}
+        % --- CASE: FANCY ---
+        {fancy}{
+        \WhichPalette{fancy}
+        \SetPrimaryColor{fancyBlue}
+        \SetSecondaryColor{fancyLightBlue}
+        \SetAccentColor{fancyGray}
+        \SetThemeColor{fancyRed}
+        \SetColorTitleMainBox{black}
+        \SetColorTitleHighlightBox{white}
+        \SetColorTitleGrayBox{white}
+        \SetColorTitleDarkBox{white}}
+        [ 
         % Default case   
-        \PackageWarning{CleanTeX-Poster}{Palette '#1' not found. Falling back to 'ufv'.}
+        %\PackageWarning{CleanTeX-Poster}{Palette '#1' not found. Falling back to 'ufv'.}
         \WhichPalette{ufv}
-        \SetUFVPalette
-    ]
-}
+        \SetUFVPalette]
+}}
 
 \SetUFVPalette
 
