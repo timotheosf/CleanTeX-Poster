@@ -16,18 +16,23 @@
       sharp corners,
       frame hidden,
       boxrule=0pt,
-      colback=\PrimaryColor!5!white,
-      borderline west={5pt}{0pt}{\PrimaryColor},
+      colback=\ThemeColor!5!white,
+      borderline west={5pt}{0pt}{\ThemeColor},
       left=0.5em,
       top=0.4em,
       bottom=0.4em,
       halign=center,
       valign=center
   ]
-      {\setSectionFont\bfseries\color{\PrimaryColor} #1}
+      {\setSectionFont\bfseries\color{\ThemeColor} #1}
   \end{tcolorbox}
   \vspace{0.5em}
 }
+
+\setlist[itemize,1]{label=\textcolor{\ThemeColor}{\textbullet}}
+\setlist[itemize,2]{label=\textcolor{\ThemeColor}{$\circ$}}
+
+\newcommand{\Highlight}[1]{{\color{\ThemeColor}\sf({#1})}}
 
 % --- CONFIGURAÇÃO DAS CAIXAS ---%
 \tcbset{
@@ -36,13 +41,13 @@
     }
 }
 
-\newtcolorbox{bluebox}[2][]{
+\newtcolorbox{mainbox}[2][]{
     enhanced,
     breakable,
     sharp corners,
     frame hidden,
     boxrule=0pt,
-    colback=NavyBlue!3!white,
+    colback=\PrimaryColor!3!white,
     coltitle=Black,
     fonttitle=\bfseries,
     title={#2},
@@ -51,8 +56,8 @@
     boxed title style={
         sharp corners,
         coltitle=Black,
-        colback=NavyBlue!20!white,
-        colframe=NavyBlue!20!white,
+        colback=\PrimaryColor!20!white,
+        colframe=\PrimaryColor!20!white,
         boxrule=0pt,
         top=0.2em,
         bottom=0.1em,
@@ -67,21 +72,21 @@
     right=0.5em
 }
 
-\newtcolorbox{floralbox}[2][]{
+\newtcolorbox{highlightbox}[2][]{
     enhanced,
     breakable,
     sharp corners,
     frame hidden,
     boxrule=0pt,
-    colback=FloralWhite!50!white,
+    colback=\SecondaryColor!20!white,
     fonttitle=\bfseries,
     title={#2},
     attach boxed title to top left={yshift=-\tcboxedtitleheight/2, xshift=1em},
     #1,
     boxed title style={
         coltitle=Black,
-        colback=SlateGrey!90!White,
-        colframe=SlateGrey!90!White,
+        colback=\AccentColor!90!White,
+        colframe=\AccentColor!90!White,
         boxrule=0pt,
         top=0.2em,
         bottom=0.1em,
@@ -102,15 +107,15 @@
     sharp corners,
     frame hidden,
     boxrule=0pt,
-    colback=Gainsboro!30!white,
+    colback=\AccentColor!5!white,
     fonttitle=\bfseries,
     title={#2},
     attach boxed title to top left={yshift=-\tcboxedtitleheight/2, xshift=1em},
     #1,
     boxed title style={
         sharp corners,
-        colback=DimGrey,
-        colframe=DimGrey,
+        colback=\AccentColor,
+        colframe=\AccentColor,
         boxrule=0pt,
         top=0.2em,
         bottom=0.1em,
@@ -130,7 +135,7 @@
     breakable,
     boxrule=0pt,
     frame hidden,
-    colback=NavyBlue!10!white,
+    colback=\PrimaryColor!10!white,
     coltitle=white,
     fonttitle=\bfseries,
     title={#2},
@@ -138,8 +143,8 @@
     #1,
     boxed title style={
         coltitle=white,
-        colback=NavyBlue!70!white,
-        colframe=NavyBlue!70!white,
+        colback=\PrimaryColor!70!white,
+        colframe=\PrimaryColor!70!white,
         boxrule=0pt,
         top=0.2em,
         bottom=0.1em,
